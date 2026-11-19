@@ -6,6 +6,7 @@ const links = [
   { to: "/", label: "Index" },
   { to: "/services", label: "Capabilities" },
   { to: "/portfolio", label: "Case Work" },
+  { to: "/case-studies", label: "Executive PDFs", badge: "PDF" },
   { to: "/3d-studio", label: "3D Spatial Lab", badge: "LIVE" },
   { to: "/about", label: "Studio" },
   { to: "/contact", label: "Inquire" },

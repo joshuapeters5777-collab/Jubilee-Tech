@@ -20,8 +20,14 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as Studio3DRouteImport } from './routes/3d-studio'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as IndexRouteImport } from './routes/index'
 
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/3d-studio': typeof Studio3DRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/faq': typeof FaqRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/3d-studio': typeof Studio3DRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/faq': typeof FaqRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/3d-studio': typeof Studio3DRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/faq': typeof FaqRoute
@@ -130,8 +139,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/3d-studio'
     | '/about'
     | '/admin'
+    | '/case-studies'
     | '/contact'
     | '/dashboard'
     | '/faq'
@@ -143,8 +154,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/3d-studio'
     | '/about'
     | '/admin'
+    | '/case-studies'
     | '/contact'
     | '/dashboard'
     | '/faq'
@@ -156,8 +169,10 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/3d-studio'
     | '/about'
     | '/admin'
+    | '/case-studies'
     | '/contact'
     | '/dashboard'
     | '/faq'
@@ -173,6 +188,7 @@ export interface RootRouteChildren {
   Studio3DRoute: typeof Studio3DRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRoute
   FaqRoute: typeof FaqRoute
@@ -255,6 +271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -270,6 +293,7 @@ const rootRouteChildren: RootRouteChildren = {
   Studio3DRoute: Studio3DRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRoute,
   FaqRoute: FaqRoute,

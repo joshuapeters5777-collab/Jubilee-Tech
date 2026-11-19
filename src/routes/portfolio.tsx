@@ -16,6 +16,10 @@ import {
   X,
   FolderCode,
   ShieldCheck,
+  FileText,
+  Download,
+  Sparkles,
+  Printer,
 } from "lucide-react";
 
 export const Route = createFileRoute("/portfolio")({
@@ -93,6 +97,102 @@ function PortfolioPage() {
                 </button>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Executive PDF Briefs & Documentation Banner */}
+      <section className="mx-auto max-w-7xl px-6 pt-10 pb-2">
+        <div className="rounded-3xl border border-sky-400/30 bg-gradient-to-r from-sky-950/40 via-blue-950/20 to-slate-950/50 p-6 md:p-8 shadow-2xl">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-sky-300">
+                CLIENT DOCUMENTATION // 2 PRODUCTION PDF BRIEFS
+              </span>
+              <h2 className="mt-1 text-2xl md:text-3xl font-display font-bold text-white">
+                Download Technical Case Studies & Build Roadmap
+              </h2>
+              <p className="mt-1 text-xs md:text-sm text-white/65 max-w-2xl">
+                Ready-to-print executive briefs for enterprise buyers, investors, and prospective clients detailing our full-stack architecture and 14-day delivery sprint.
+              </p>
+            </div>
+
+            <Link
+              to="/case-studies"
+              className="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-xs font-bold text-slate-950 hover:bg-sky-100 transition shadow-xl"
+            >
+              Open PDF Document Hub <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-5">
+            {/* PDF 1 Card */}
+            <div className="rounded-2xl border border-white/12 bg-black/45 p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <span className="rounded-md bg-sky-500/20 border border-sky-400/40 px-2.5 py-0.5 font-mono text-[9px] font-bold text-sky-300">
+                    PDF 1 · 3 PAGES
+                  </span>
+                  <span className="font-mono text-[10px] text-white/50">FULL-STACK CASE STUDY</span>
+                </div>
+                <h3 className="font-display font-bold text-lg text-white">
+                  KINETIX Performance Athletics E-Commerce
+                </h3>
+                <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                  Next.js 15 App Router & Supabase PostgreSQL 17 storefront with zero-trust cart recalculation, Yoco Checkout webhooks, and 3 clean UI production screens.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono text-sky-200/80">
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">Goal & Challenges</span>
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">Tech Stack</span>
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">Auth · API · Database</span>
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">3 UI Screenshots</span>
+                </div>
+              </div>
+
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between">
+                <span className="text-[11px] font-mono text-emerald-300">Print / Save as PDF Ready</span>
+                <Link
+                  to="/case-studies"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-300 hover:text-white transition"
+                >
+                  View & Download PDF 1 →
+                </Link>
+              </div>
+            </div>
+
+            {/* PDF 2 Card */}
+            <div className="rounded-2xl border border-white/12 bg-black/45 p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <span className="rounded-md bg-emerald-500/20 border border-emerald-400/40 px-2.5 py-0.5 font-mono text-[9px] font-bold text-emerald-300">
+                    PDF 2 · 1 PAGE
+                  </span>
+                  <span className="font-mono text-[10px] text-white/50">EXECUTIVE ROADMAP</span>
+                </div>
+                <h3 className="font-display font-bold text-lg text-white">
+                  Build Process & Deliverables Roadmap
+                </h3>
+                <p className="mt-1.5 text-xs text-white/70 leading-relaxed">
+                  Clear 4-phase visual roadmap: 1. Requirements & Architecture → 2. Responsive UI/UX → 3. Backend, API & Database → 4. Testing & Cloud Deployment.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono text-emerald-200/80">
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">14-Day Sprint</span>
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">Fixed Price Guarantee</span>
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">100% Code Ownership</span>
+                  <span className="rounded bg-white/5 border border-white/10 px-2 py-0.5">30-Day Warranty</span>
+                </div>
+              </div>
+
+              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between">
+                <span className="text-[11px] font-mono text-emerald-300">Print / Save as PDF Ready</span>
+                <Link
+                  to="/case-studies"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-300 hover:text-white transition"
+                >
+                  View & Download PDF 2 →
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

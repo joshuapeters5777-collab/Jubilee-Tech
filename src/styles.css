@@ -295,3 +295,40 @@
   to { opacity: 1; transform: translateY(0); }
 }
 .jt-fade-up { animation: jt-fade-up 0.7s ease-out both; }
+
+/* ==========================================================================
+   Executive PDF Print Optimization (PDF 1: Case Study & PDF 2: Roadmap)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  body {
+    background: #070b14 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide navigation, header, footer, concierge widget, floating controls */
+  header,
+  nav,
+  footer,
+  .no-print,
+  #jt-concierge-widget,
+  [data-no-print="true"] {
+    display: none !important;
+  }
+
+  /* Clean page break between PDF pages */
+  .print-page {
+    page-break-after: always !important;
+    break-after: page !important;
+    min-height: 100vh !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+}

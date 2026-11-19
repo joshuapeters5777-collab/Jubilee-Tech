@@ -22,6 +22,7 @@ import {
   Maximize2,
   X,
   FolderCode,
+  FileText,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -103,6 +104,13 @@ function Hero() {
               >
                 <Box size={16} className="text-sky-300" />
                 Explore 3D Spatial Lab
+              </Link>
+              <Link
+                to="/case-studies"
+                className="inline-flex items-center gap-2 rounded-full border border-sky-400/35 bg-sky-500/15 px-6 py-4 text-sm font-semibold text-sky-200 hover:bg-sky-500/25 transition backdrop-blur-xl"
+              >
+                <FileText size={16} className="text-sky-300" />
+                Case Studies & Roadmap (PDF)
               </Link>
             </div>
 
@@ -692,6 +700,13 @@ function CTA() {
               className="inline-flex items-center gap-2 rounded-full px-6 py-4 text-sm font-semibold text-white border border-white/25 bg-white/10 hover:bg-white/20 transition"
             >
               Inspect All 12 Case Studies <Layers size={16} />
+            </Link>
+            <Link
+              to="/case-studies"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-4 text-sm font-semibold text-sky-200 border border-sky-400/35 bg-sky-500/15 hover:bg-sky-500/25 transition"
+            >
+              <FileText size={16} className="text-sky-300" />
+              Download Case Study & Roadmap (PDF)
             </Link>
           </div>
         </div>
