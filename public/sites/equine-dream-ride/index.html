@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equine Dream Ride — CHG Equestrians Midrand Simulator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0c1310] text-stone-100 font-sans antialiased">
+  <header class="border-b border-emerald-500/20 px-6 py-5 flex items-center justify-between max-w-6xl mx-auto">
+    <div class="text-xl font-bold tracking-wider text-amber-300">CHG EQUESTRIANS // MIDRAND</div>
+    <span class="text-xs bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 px-3 py-1 rounded-full">Supabase Booking Engine</span>
+  </header>
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-10">
+    <section class="rounded-3xl border border-amber-400/25 bg-[#111c17] p-8 md:p-12">
+      <h1 class="text-4xl md:text-5xl font-bold">Master Your Seat On Our Mechanical Equestrian Simulator.</h1>
+      <p class="text-stone-300 mt-3 max-w-xl">Biomechanics analysis, dressage collection, and showjumping rhythm coaching in Midrand, Gauteng.</p>
+      <form id="eq-form" class="mt-8 grid md:grid-cols-4 gap-3">
+        <input id="eq-name" required placeholder="Rider Name" class="rounded-xl bg-black/40 border border-white/15 px-4 py-3 text-sm" />
+        <input id="eq-email" type="email" required placeholder="Email" class="rounded-xl bg-black/40 border border-white/15 px-4 py-3 text-sm" />
+        <select id="eq-service" class="rounded-xl bg-black/60 border border-white/15 px-4 py-3 text-sm">
+          <option value="45-Min Simulator Biomechanics (R650)">45-Min Simulator Biomechanics (R650)</option>
+          <option value="Pro Jump & Dressage Assessment (R950)">Pro Jump & Dressage Assessment (R950)</option>
+        </select>
+        <button type="submit" class="rounded-xl bg-amber-400 text-stone-950 font-bold text-sm py-3">Book Session →</button>
+      </form>
+      <p id="eq-msg" class="text-xs text-emerald-400 mt-3 hidden">✓ Session booked in Supabase PostgreSQL (portfolio_bookings)!</p>
+    </section>
+  </main>
+  <script>
+    document.getElementById('eq-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await fetch('https://sclhhyutcbwajzuilahg.supabase.co/rest/v1/portfolio_bookings', {
+        method: 'POST',
+        headers: {
+          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjbGhoeXV0Y2J3YWp6dWlsYWhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQxMzUyMTAsImV4cCI6MjEwOTcxMTIxMH0.P2SiwxxF1aZqyuOJTgjTVyNw8qgjYOCAeVxxb2HA5Go',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjbGhoeXV0Y2J3YWp6dWlsYWhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQxMzUyMTAsImV4cCI6MjEwOTcxMTIxMH0.P2SiwxxF1aZqyuOJTgjTVyNw8qgjYOCAeVxxb2HA5Go',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          site_slug: 'equine-dream-ride',
+          customer_name: document.getElementById('eq-name').value,
+          customer_email: document.getElementById('eq-email').value,
+          service_name: document.getElementById('eq-service').value,
+          preferred_date: new Date().toISOString().slice(0,10)
+        })
+      });
+      document.getElementById('eq-msg').classList.remove('hidden');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
